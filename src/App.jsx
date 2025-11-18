@@ -10,9 +10,13 @@ import {
   Stack,
   Card,
   Group,
-  Badge
+  Badge,
 } from "@mantine/core";
-import { IconBrandReact, IconDeviceDesktop, IconSettings } from "@tabler/icons-react";
+import {
+  IconBrandReact,
+  IconDeviceDesktop,
+  IconSettings,
+} from "@tabler/icons-react";
 
 export default function App() {
   return (
@@ -22,7 +26,9 @@ export default function App() {
         <ProjectsCarousel />
 
         {/* Skills / Features Section */}
-        <Title order={2} my="xl" align="center">Skills</Title>
+        <Title order={2} my="xl" align="center">
+          Skills
+        </Title>
         <Group position="center" spacing="xl">
           <Stack align="center">
             <IconBrandReact size={48} color="#61dafb" />
@@ -33,7 +39,7 @@ export default function App() {
             <Text>Web Design</Text>
           </Stack>
           <Stack align="center">
-            <IconSettings size={48} color="#f06595" />
+            <IconSettings size={48} color="#c9557dff" />
             <Text>UI/UX</Text>
           </Stack>
         </Group>
