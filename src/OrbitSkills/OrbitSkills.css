@@ -1,0 +1,51 @@
+.orbit-container{
+    position: relative;
+    padding: 80px 0;
+}
+
+.orbit-title{}
+
+.orbit-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #61dafb;
+  filter: drop-shadow(0 0 20px #61dafb);
+}
+
+.orbit-center-glow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+width: 350px;
+height: 350px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    background: radial-gradient(closest-side, rgba(0, 123, 255, 0.4), transparent);
+}
+
+.orbit-wrapper {
+  width: 450px;
+  height: 450px;
+  margin: auto;
+  border-radius: 50%;
+  position: relative;
+}
+
+.react-core{
+    width: 70px;
+    height: 70px;
+}
+
+.orbit-pos-0 { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.orbit-pos-1 { top: 15%; right: 10%; }
+.orbit-pos-2 { top: 50%; right: -2%; transform: translateY(-50%); }
+.orbit-pos-3 { bottom: 15%; right: 10%; }
+.orbit-pos-4 { bottom: 0%; left: 50%; transform: translate(-50%, 50%); }
+.orbit-pos-5 { bottom: 15%; left: 10%; }
+.orbit-pos-6 { top: 50%; left: -2%; transform: translateY(-50%); }
+.orbit-pos-7 { top: 15%; left: 10%; }

@@ -1,91 +1,91 @@
-import React from "react";
-import { Container, Card, Text, Title, Stack, Badge } from "@mantine/core";
+import React, { useRef, useState } from "react";
+import { Container, Title } from "@mantine/core";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { FaReact, FaDatabase, FaLaptopCode } from "react-icons/fa";
-import { GiCupcake, GiDivingHelmet } from "react-icons/gi";
-import { WiDayCloudy } from "react-icons/wi";
-import FadeInWhenVisible from "../FadeInWhenVisible/FadeInWhenVisible";
-import { useInView } from "react-intersection-observer";
-import { defaultConditions } from "@chakra-ui/react/preset-base";
+import "./Projects.css";
+import ProjectCard from "../ProjectCard/ProjectCard";
 
-const projectsData = [
-  {
-    title: "Portfolio website",
-    description: "Sleek personal portfolio built with React and Mantine.",
-    tech: "React",
-    icon: <FaLaptopCode size={40} color="#61dafb" />,
-    github: "#",
-  },
+const projects = [
   {
     title: "Loli B Bakery",
-    description:
-      " Fully Stack e-commerce bakery site built using React and Express",
+    description: "Full stack bakery e-commerce platform with JWT auth.",
     tech: "Full Stack",
-    icon: <GiCupcake size={40} color="#22b8cf" />,
+    image: "/images/LoliPreview.png",
     github: "https://github.com/MrWatson0531/Loli-B-Bakery",
   },
   {
     title: "WTWR",
-    description:
-      "A Full stack app that tells you the weather and give clothing options accordingly.",
+    description: "Weather-based clothing suggestion app.",
     tech: "Full Stack",
-    icon: <WiDayCloudy size={40} color="#f06595" />,
-    github: "#",
+    image: "/images/wtwrPreview.png",
+    github: "https://github.com/MrWatson0531/se_project_react  ",
   },
   {
     title: "Around the US",
-    description: "An app chronicalling the adventures of Jaques Coustoue",
-    tech: "UX / UI",
-    icon: <GiDivingHelmet size={40} color="rgba(164, 16, 164, 1)" />,
-    github: "#",
+    description: "Chronicles the adventures of Jaques Cousteau.",
+    tech: "UI / UX",
+    image: "/images/usPreview.png",
+    github: "https://github.com/MrWatson0531/se_project_aroundtheus",
   },
 ];
 
 export default function ProjectsCarousel() {
+  const ref = useRef(null);
+  const [index, setIndex] = useState(0);
+
+  const scrollToIndex = (i) => {
+    if (!ref.current) return;
+    const cardWidth = ref.current.children[0].offsetWidth + 20;
+    ref.current.scrollTo({ left: i * cardWidth, behavior: "smooth" });
+    setIndex(i);
+  };
+
+  const next = () => scrollToIndex(index + 1);
+  const prev = () => scrollToIndex(index - 1);
+
   return (
     <Container className="projects-carousel-container" size="xl" py="xl">
       <Title order={2} align="center" mb="xl">
         Featured Projects
       </Title>
 
-      {projectsData.map((project, index) => (
-        <FadeInWhenVisible key={index} delay={index * 0.15}>
-          <motion.div
-            key={index}
-            className="project-card-wrapper"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Card
-              shadow="lg"
-              p="lg"
-              radius="lg"
-              withBorder
-              className="project-card"
-            >
-              <Stack align="center" spacing="md">
-                {project.icon}
-                <Title order={4}>{project.title}</Title>
-                <Badge color="cyan" variant="light">
-                  {project.tech}
-                </Badge>
-                <Text size="sm" color="dimmed" align="center">
-                  {project.description}
-                </Text>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Text color="indigo" weight={500}>
-                    View Project
-                  </Text>
-                </a>
-              </Stack>
-            </Card>
-          </motion.div>
-        </FadeInWhenVisible>
-      ))}
+      <div className="carousel-wrapper">
+        <button
+          className={`arrow left ${index === 0 ? "hidden" : ""}`}
+          onClick={prev}
+        >
+          <ChevronLeft size={32} />
+        </button>
+
+        <div className="carousel-scroll" ref={ref}>
+          {projects.map((project, i) => (
+            <div className="project-card-wrapper" key={i}>
+              <motion.div
+                className="project-card-scale"
+                whileHover={{ rotateX: 5, rotateY: -5, scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 150, damping: 12 }}
+              >
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  tech={project.tech}
+                  image={project.image}
+                  github={project.github}
+                />
+              </motion.div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className={`arrow right ${
+            index === projects.length - 1 ? "hidden" : ""
+          }`}
+          onClick={next}
+        >
+          <ChevronRight size={32} />
+        </button>
+      </div>
     </Container>
   );
 }

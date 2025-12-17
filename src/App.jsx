@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "./Hero/Hero";
+import OrbitSkills from "./OrbitSkills/OrbitSkills";
 import ProjectsCarousel from "./Projects/ProjectsCarousel";
 import {
   MantineProvider,
@@ -24,6 +25,7 @@ export default function App() {
       <Container size="md" py="xl">
         <Hero />
         <ProjectsCarousel />
+        <OrbitSkills /> 
 
         {/* Skills / Features Section */}
         <Title order={2} my="xl" align="center">

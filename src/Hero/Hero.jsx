@@ -14,7 +14,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <Title order={1}>Mike Watson</Title>
+          <h1 order={1}>Mike Watson</h1>
         </motion.div>
         {/*Subtitle */}
         <motion.div
