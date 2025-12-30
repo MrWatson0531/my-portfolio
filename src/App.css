@@ -1,5 +1,19 @@
+@font-face {
+  font-family: "Player2";
+  src: url(/Fonts/PressStart2P-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url(/Fonts/Orbitron-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "VT323";
+  src: url(/Fonts/VT323-Regular.ttf) format("truetype");
+}
+
 .App {
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {

@@ -2,7 +2,7 @@ import { Card, Text, Title, Badge, Stack } from "@mantine/core";
 import { motion } from "framer-motion";
 import "./ProjectCard.css";
 
-export default function ProjectCard({ titel, image, tech, github, description, title }) {
+export default function ProjectCard({ title, image, tech, github, description,}) {
   return (
     <motion.div
       className="project-card-container"

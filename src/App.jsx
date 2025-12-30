@@ -1,51 +1,21 @@
 import React from "react";
+import  { Routes, Route } from "react-router";
 import Hero from "./Hero/Hero";
 import OrbitSkills from "./OrbitSkills/OrbitSkills";
-import ProjectsCarousel from "./Projects/ProjectsCarousel";
-import {
-  MantineProvider,
-  Container,
-  Title,
-  Text,
-  Button,
-  Stack,
-  Card,
-  Group,
-  Badge,
-} from "@mantine/core";
-import {
-  IconBrandReact,
-  IconDeviceDesktop,
-  IconSettings,
-} from "@tabler/icons-react";
+import Projects from "./Projects/Projects";
+import Contact from "./Contact/Contact";
+import { MantineProvider, Container } from "@mantine/core";
 
 export default function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <Container size="md" py="xl">
-        <Hero />
-        <ProjectsCarousel />
-        <OrbitSkills /> 
-
-        {/* Skills / Features Section */}
-        <Title order={2} my="xl" align="center">
-          Skills
-        </Title>
-        <Group position="center" spacing="xl">
-          <Stack align="center">
-            <IconBrandReact size={48} color="#61dafb" />
-            <Text>React</Text>
-          </Stack>
-          <Stack align="center">
-            <IconDeviceDesktop size={48} color="#22b8cf" />
-            <Text>Web Design</Text>
-          </Stack>
-          <Stack align="center">
-            <IconSettings size={48} color="#c9557dff" />
-            <Text>UI/UX</Text>
-          </Stack>
-        </Group>
+      <Container size="md" py="xl" className="App__container">
+        <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/Skills" element={<><OrbitSkills /><Projects /><Contact /></>} />
+        </Routes>
       </Container>
     </MantineProvider>
   );
 }
+ 

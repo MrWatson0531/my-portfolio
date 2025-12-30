@@ -1,55 +1,60 @@
-.project-card-container {
-  width: 300px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
 .project-card {
+  background: #f3fffe; /* dark game panel background */
+  border: 2px solid rgba(97, 218, 251, 0.5); /* light cyan border */
+  border-radius: 16px;
+  position: relative;
   overflow: hidden;
-  background: white;
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(97, 218, 251, 0.4);
+  transition: box-shadow 0.25s ease;
+  font-family: 'Orbitron', sans-serif; /* game font */
 }
 
 .project-card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 30px rgba(97, 218, 251, 0.8), 0 0 40px rgba(34, 211, 238, 0.5);
 }
 
 .project-image-wrapper {
   position: relative;
-  width: 100%;
-  height: 180px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .project-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.35s ease;
+  display: block;
+  border-radius: 12px;
+  filter: brightness(0.85); /* slightly darken image for glow overlay */
+  transition: transform 0.25s ease;
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .project-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 40%,
-    rgba(0, 0, 0, 0.25) 100%
-  );
+  background: linear-gradient(135deg, rgba(97, 218, 251, 0.2), rgba(251, 97, 218, 0.2));
+  pointer-events: none;
 }
 
 .project-link {
-  color: #3b5bdb;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-top: 8px;
-  transition: color 0.2s ease;
+  color: #61dafb;
+  font-weight: bold;
+  font-family: 'VT323', monospace;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .project-link:hover {
-  color: #364fc7;
+  color: #ff6c37;
+  text-shadow: 0 0 8px #ff6c37;
 }
+
+/* Badge styling for “tech” */
+.project-card .mantine-Badge-root {
+  font-family: 'VT323', monospace;
+  background: linear-gradient(90deg, #61dafb, #ff6c37);
+  color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+

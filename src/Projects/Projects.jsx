@@ -4,32 +4,63 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import "./Projects.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import LoliPreview from "../images/LoliPreview.png";
+import wtwrPreview from "../images/wtwrPreview.png";
+import usPreview from "../images/usPreview.png";
+import portfolio from "../images/portfolio.jpg";
 
 const projects = [
   {
     title: "Loli B Bakery",
-    description: "Full stack bakery e-commerce platform with JWT auth.",
+    description:
+      "Built a full-stack bakery shop where users can battle cart chaos with secure JWT login, level up their orders, and conquer checkout with ease.",
     tech: "Full Stack",
-    image: "/images/LoliPreview.png",
+    image: LoliPreview,
     github: "https://github.com/MrWatson0531/Loli-B-Bakery",
   },
   {
     title: "WTWR",
-    description: "Weather-based clothing suggestion app.",
+    description:
+      "Your personal weather oracle: WTWR suggests optimal outfits to conquer any weather challenge, powered by live climate data.",
     tech: "Full Stack",
-    image: "/images/wtwrPreview.png",
+    image: wtwrPreview,
     github: "https://github.com/MrWatson0531/se_project_react  ",
   },
   {
     title: "Around the US",
-    description: "Chronicles the adventures of Jaques Cousteau.",
+    description:
+      "Set sail with Jacques Cousteau! An interactive journey across the US showcasing exploration, multimedia adventures, and interactive maps.",
     tech: "UI / UX",
-    image: "/images/usPreview.png",
+    image: usPreview,
     github: "https://github.com/MrWatson0531/se_project_aroundtheus",
+  },
+  {
+    title: "TripleTen Library",
+    description:
+      "Take flight with TripleTen Library: an interactive web experience honoring pioneering women aviators, complete with dynamic profiles and immersive design.",
+    tech: "UI / UX",
+    image: "",
+    github: "",
+  },
+  {
+    title: "TripleTen Coffee Shop",
+    description:
+      "Brew brilliance with TripleTen Coffee Shop: a sleek, user-friendly web app that serves up seamless browsing, embedded recipe video, and a rich coffee experience.",
+    tech: "UI / UX",
+    image: "",
+    github: "",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "Crafted a dynamic portfolio website showcasing my skills, projects, and contact info with a sleek design and smooth user experience.",
+    tech: "UI / UX",
+    image: portfolio,
+    github: "https://github.com/MrWatson0531/mwatson-portfolio",
   },
 ];
 
-export default function ProjectsCarousel() {
+export default function Projects() {
   const ref = useRef(null);
   const [index, setIndex] = useState(0);
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Title, Tooltip } from "@mantine/core";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaDatabase, FaJsSquare } from "react-icons/fa";
 import {
   SiMongodb,
@@ -9,54 +9,54 @@ import {
   SiCss3,
   SiFigma,
   SiPostgresql,
+  SiPostman,
 } from "react-icons/si";
 import "./OrbitSkills.css";
+import profileImg from "../images/hero.jpg";
 
 export default function OrbitSkills() {
   const skills = [
-    { icon: <FaReact />, label: "React" },
-    { icon: <FaNodeJs />, label: "Node.js" },
-    { icon: <FaDatabase />, label: "SQL" },
-    { icon: <FaJsSquare />, label: "JavaScript" },
-    { icon: <SiMongodb />, label: "MongoDB" },
-    { icon: <SiExpress />, label: "Express.js" },
-    { icon: <SiHtml5 />, label: "HTML5" },
-    { icon: <SiCss3 />, label: "CSS" },
-    { icon: <SiFigma />, label: "Figma" },
-    { icon: <SiPostgresql />, label: "PostgreSQL" },
+    { icon: <FaReact />, name: "React", value:97, color: "#61DAFB" },
+    { icon: <FaNodeJs />, name: "Node.js", value:95,  color:"#339933" },
+    { icon: <FaDatabase />, name: "SQL", value:97, color: "#336791" },
+    { icon: <FaJsSquare />, name: "JavaScript", value:98, color: "#F7DF1E" },
+    { icon: <SiMongodb />, name: "MongoDB", value:99, color: "#47A248" },
+    { icon: <SiExpress />, name: "Express.js", value:96, color: "#000000" },
+    { icon: <SiHtml5 />, name: "HTML5", value:99, color: "#E34F26" },
+    { icon: <SiCss3 />, name: "CSS", value:99, color: "#1572B6" },
+    { icon: <SiFigma />, name: "Figma", value:98, color: "#F24E1E" },
+    { icon: <SiPostman />, name: "Postman", value:96, color: "#FF6C37" },
   ];
 
   return (
-    <Container className="orbit-container">
-      <h2 className="orbit-title">My Skills Galaxy</h2>
-      <div className="orbit-center-glow" />
+       <div className="player-card">
+          <div className="player-avatar">
+            <img src={profileImg} alt="Your Name" href="#/hero" />
+          </div>
 
-      <motion.div
-        className="orbit-wrapper"
-        viewport={{ once: true }}
-        initial={{ scale: 0.8, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <motion.div
-          className="orbit-core"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-        >
-          <FaReact className="react-core" size={70} />
-        </motion.div>
-        {skills.map((skill, index) => (
-          <Tooltip label={skill.label} key={index} position="bottom" withhArrow>
-            <motion.div
-              className={`orbit-item orbit-pos-${index}`}
-              whileHover={{ scale: 1.3 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-            >
-              {skill.icon}
-            </motion.div>
-          </Tooltip>
-        ))}
-      </motion.div>
-    </Container>
+          <div className="player-stats">
+            <h3 className="stats-title">PLAYER STATS</h3>
+
+            {skills.map((skill) => (
+              <div className="stat" key={skill.name}>
+                <div className="stat-label">
+                  <span>
+                    {skill.name}&nbsp;
+                    {skill.icon}
+                  </span>
+                  <span>{skill.value}%</span>
+                </div>
+                <div className="stat-bar">
+                  <div
+                    className="stat-fill"
+                    style={{ width: `${skill.value}%`,
+                      "--stat-color": skill.color,
+                     }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
   );
 }

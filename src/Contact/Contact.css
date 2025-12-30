@@ -1,0 +1,68 @@
+.contact {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+}
+
+.quest__board {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.quest__title {
+  font-family: "Player2", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+  background-color: var(--accent-pink);
+}
+
+.quest__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(97, 218, 251, 0.4);
+  border-radius: 18px;
+  padding: 2.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  font-family: "VT323", monospace;
+  font-size: 25px;
+}
+
+.quest__name {
+  font-family: "Player2", sans-serif;
+  font-size: 25px;
+}
+
+.quest__details {
+  text-align: left;
+  margin: 2rem 0;
+  list-style-type: square;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.quest__acitons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.quest__btn-primary,
+.quest__btn-secondary {
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--accent-cyan);
+  color: #000;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+}
+
+.quest__btn-primary:hover,
+.quest__btn-secondary:hover {
+  transform: translateY(-2px);
+  scale: (1.05);
+}

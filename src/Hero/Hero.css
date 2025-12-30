@@ -1,27 +1,88 @@
-.hero__container {
-  background: linear-gradient(135deg, #3b00bb, #512676);
-  border-radius: 12px;
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
+@font-face {
+  font-family: "Player2";
+  src: url(/Fonts/PressStart2P-Regular.ttf) format("truetype");
+}
+
+.hero{
+  min-height: 100vh;
+  display:grid;
+  place-items: center;
   position: relative;
   overflow: hidden;
+  text-align: center;
+  font-family: "Player2", sans-serif;
 }
 
-.hero__title {
-  font-weight: 500;
-  font-size: 3rem;
+.hero::before,
+.Hero::after{
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  opacity: 0.35;
 }
 
-.hero__subtitle {
-  max-width: 100%;
+.hero::before{
+  background: var(--accent-cyan);
+  top: 15%;
+  left: 10%;
 }
 
-.hero__button {
-  margin-top: 20px;
-  border-radius: 20px;
-  border: 0;
-  background-color: transparent;
-  max-width: 100%;
-  height: 100%;
+.hero::after{
+  background: var(--accent-pink);
+  bottom: 15%;
+  right: 10%;
+}
+
+.hero__content{
+  max-width: 900px;
+  padding: 15px;
+  position: relative;
+  z-index: 1;
+}
+.hero__title{
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.hero__name{
+  display: block;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+}
+.hero__role{
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-pink)
+}
+.hero__description{
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+.hero__actions{
+  display:flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero__btn{
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: var(--accent-cyan);
+  color: #000;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+}
+.hero__btn:hover{
+  transform: translateY(-2px);
+  scale:(1.05);
 }
